@@ -1,5 +1,4 @@
 ﻿using LinaqHTML.Models;
-using LinaqHTML.Models.HTMLTags;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,12 +10,16 @@ namespace LinaqHTML
 {
     public class Document : IDisposable
     {
-        public BaseTagElement Header { get; private set; }
-        public List<BaseTagElement> Children { get; set; } 
+        public BaseTagElement Head { get; private set; }
+        public BaseTagElement Body { get; private set; }
+        public List<BaseTagElement> Children { get; private set; } 
 
         public Document()
         {
-            Header = new BaseTagElement();
+            Children = new List<BaseTagElement>();
+            // Head = new BaseTagElement();
+            Body = new Body();
+
         }
 
         public string GetContent()
@@ -40,9 +43,14 @@ namespace LinaqHTML
 
             sb.AppendLine("<html>");
 
-            sb.AppendLine(Header.GetContent());
+         //   sb.AppendLine(Head.GetContent());
+
+            sb.AppendLine("<body>");
+
 
             sb.AppendLine(this.GetContent());
+
+            sb.AppendLine("</body>");
 
             sb.AppendLine("</html>");
 
