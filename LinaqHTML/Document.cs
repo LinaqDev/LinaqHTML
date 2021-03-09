@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LinaqHTML.Models;
+using LinaqHTML.Models.HTMLTags;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,17 +11,42 @@ namespace LinaqHTML
 {
     public class Document : IDisposable
     {
+        public BaseTagElement Header { get; private set; }
+        public List<BaseTagElement> Children { get; set; } 
+
         public Document()
         {
+            Header = new BaseTagElement();
+        }
+
+        public string GetContent()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var item in Children)
+            {
+                sb.AppendLine(item.GetContent());
+            }
+
+            return sb.ToString();
 
         }
 
-        private async void GenerateAndSaveContent(string path)
+        private void GenerateAndSaveContent(string path)
         {
-            using (StreamWriter file = new StreamWriter(path, append: true))
-            {
-                await file.WriteLineAsync("Test line");
-            }
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("<!DOCTYPE html>");
+
+            sb.AppendLine("<html>");
+
+            sb.AppendLine(Header.GetContent());
+
+            sb.AppendLine(this.GetContent());
+
+            sb.AppendLine("</html>");
+
+            File.WriteAllText(path,sb.ToString());
         }
 
         public void SaveToFile(string path)
