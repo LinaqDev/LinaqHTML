@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinaqHTML", "LinaqHTML\LinaqHTML.csproj", "{EDD62243-B7B6-4FD6-85F1-A9D845400870}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinaqHTML_Tests", "LinaqHTML_Tests\LinaqHTML_Tests.csproj", "{E459134B-2DC7-4278-B0BF-AC4CF3B3F7D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDD62243-B7B6-4FD6-85F1-A9D845400870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD62243-B7B6-4FD6-85F1-A9D845400870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD62243-B7B6-4FD6-85F1-A9D845400870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD62243-B7B6-4FD6-85F1-A9D845400870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E459134B-2DC7-4278-B0BF-AC4CF3B3F7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E459134B-2DC7-4278-B0BF-AC4CF3B3F7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E459134B-2DC7-4278-B0BF-AC4CF3B3F7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E459134B-2DC7-4278-B0BF-AC4CF3B3F7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {828D5E9C-894A-425A-B5DF-B7168AD60B37}
+	EndGlobalSection
+EndGlobal
