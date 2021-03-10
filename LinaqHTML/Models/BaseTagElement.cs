@@ -11,8 +11,8 @@ namespace LinaqHTML
     {
         private string Id;
         public HTMLTag HTMLTag { get; set; }
-        protected abstract string StartTag { get; set; }
-        protected abstract string EndTag { get; set; }
+        protected abstract string StartTag { get; }
+        protected abstract string EndTag { get; }
         public List<BaseTagElement> Children { get; internal set; }
 
         public BaseTagElement()
@@ -21,20 +21,40 @@ namespace LinaqHTML
             Children = new List<BaseTagElement>();
         }
 
-        public string GetContent()
+        public string GetContent(int i = 0)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(StartTag);
+            sb.Append($"{AdditionalTab(i - 1 )}{StartTag}");
 
+            if (Children.Count > 0)
+            {
+                sb.AppendLine(); 
+                i++;
+            }
+               
             foreach (var item in Children)
             {
-                sb.AppendLine(item.GetContent());
+                sb.AppendLine($"{tabs(i)}{item.GetContent(i)}");
             }
 
-            sb.AppendLine(EndTag);
+            i--;
+            sb.Append($"{AdditionalTab(i)}{EndTag}");
+
 
             return sb.ToString();
+        }
+
+        private string AdditionalTab(int i) => Children.Count > 0 ? tabs(i) : "";
+
+        private string tabs(int i)
+        {
+            var result = "";
+            for (int j = 0; j < i; j++)
+            {
+                result += "\t";
+            }
+            return result;
         }
 
         public void AddChild(BaseTagElement tagElement)

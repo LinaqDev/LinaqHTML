@@ -8,7 +8,7 @@ namespace LinaqHTML.Models
 {
     public class Body : BaseTagElement
     {
-        protected override string StartTag { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        protected override string EndTag { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        protected override string StartTag => "<body>";  
+        protected override string EndTag => "</body>";  
     }
 }

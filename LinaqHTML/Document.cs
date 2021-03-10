@@ -28,7 +28,7 @@ namespace LinaqHTML
 
             foreach (var item in Children)
             {
-                sb.AppendLine(item.GetContent());
+                sb.AppendLine($"\t{item.GetContent()}");
             }
 
             return sb.ToString();
@@ -43,14 +43,10 @@ namespace LinaqHTML
 
             sb.AppendLine("<html>");
 
-         //   sb.AppendLine(Head.GetContent());
-
-            sb.AppendLine("<body>");
-
-
+            //   sb.AppendLine(Head.GetContent());
+            int i = 0;
+            sb.AppendLine(Body.GetContent(i));
             sb.AppendLine(this.GetContent());
-
-            sb.AppendLine("</body>");
 
             sb.AppendLine("</html>");
 
@@ -62,8 +58,8 @@ namespace LinaqHTML
             if (string.IsNullOrWhiteSpace(path))
                 throw new ArgumentException("Path can not be empty.", nameof(path));
 
-            if (File.Exists(path))
-                path = Helpers.GetUniqueFilePath(path);
+          //  if (File.Exists(path))
+              //  path = Helpers.GetUniqueFilePath(path);
 
             GenerateAndSaveContent(path);
         }

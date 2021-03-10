@@ -20,7 +20,22 @@ namespace LinaqHTML_Tests
             Document doc = new Document();
 
             var link1 = new a();
-            link1.Href = "link"; 
+            link1.Href = "link";
+
+            var link2 = new a() { Href = "asd" };
+
+            link2.AddChild(new a() { Href = "asdasdasd2" });
+            link2.AddChild(new a() { Href = "asdasdasd2" });
+            link2.AddChild(new a() { Href = "asdasdasd2" });
+            link2.AddChild(new a() { Href = "asdasdasd2" });
+            link2.AddChild(new a() { Href = "asdasdasd2" });
+            link2.AddChild(new a() { Href = "asdasdasd2" });
+            link2.AddChild(new a() { Href = "asdasdasd2" });
+            link2.AddChild(new a() { Href = "asdasdasd2" });
+
+            link1.AddChild(link2);
+            link1.AddChild(new a() { Href = "asd2"});
+            link1.AddChild(new a() { Href = "asd3"});
 
             doc.Body.AddChild(link1);
             doc.Body.AddChild(new a() { Href = "kolejny w body"});
